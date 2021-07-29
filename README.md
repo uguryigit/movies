@@ -23,7 +23,7 @@ The main program is Top15Movies.py
 Unit Test program is testutile.py
 Functions are in lib\utils.py
 Spark session configuration is in spark.conf
-Data Files are in Data Folder
+Data Files are in Data Folder. title.ratings.tsv.gz and title.basics.tsv.gz files must be copied into Data folder before executing the Python code.
 Log4J library,  logger.py and log4j properties have been used for logging. 
 
 
@@ -57,3 +57,44 @@ To get the title description, we need to join rating data with title basics as b
         .show(15)        
         
 As a unit test, only row count for each data file have been checked.         
+
+
+The execution result of the codes is as below:
+
+C:\Users\User\AppData\Local\Programs\Python\Python38-32\python.exe C:/demo/spark-chalenges/MoviesDemo/Top15Movies.py
+21/07/29 02:39:00 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+21/07/29 02:39:03 INFO pyspark-shell: Loading Title Basics into Data Frame has started
+[Stage 1:>                                                          (0 + 2) / 2]21/07/29 02:39:15 WARN ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped
+21/07/29 02:39:20 INFO pyspark-shell: Loading Title Ratings into Data Frame has started
+21/07/29 02:39:21 INFO pyspark-shell: Fetching Top 15 Movies
+21/07/29 02:39:22 INFO pyspark-shell: Listing Top 15 Movies
+21/07/29 02:39:22 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+21/07/29 02:39:22 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
++----+---------+--------------------+-------------+--------+--------------------+------------------+
+|rank|   tconst|        primaryTitle|averageRating|numVotes|averageNumberOfVotes|       rankingRate|
++----+---------+--------------------+-------------+--------+--------------------+------------------+
+|   1|tt0111161|The Shawshank Red...|          9.3| 2426290|   958.9988271494447|23529.222728114648|
+|   2|tt0468569|     The Dark Knight|          9.0| 2382394|   958.9988271494447| 22358.26092064519|
+|   3|tt1375666|           Inception|          8.8| 2138333|   958.9988271494447|19621.849232009146|
+|   4|tt0944947|     Game of Thrones|          9.2| 1842967|   958.9988271494447| 17680.20556437843|
+|   5|tt0137523|          Fight Club|          8.8| 1913481|   958.9988271494447| 17558.55411215844|
+|   6|tt0110912|        Pulp Fiction|          8.9| 1882455|   958.9988271494447|  17470.1459748388|
+|   7|tt0109830|        Forrest Gump|          8.8| 1874841|   958.9988271494447| 17203.98433545629|
+|   8|tt0068646|       The Godfather|          9.2| 1679389|   958.9988271494447|16110.946502327999|
+|   9|tt0120737|The Lord of the R...|          8.8| 1709374|   958.9988271494447|15685.620017610167|
+|  10|tt0133093|          The Matrix|          8.7| 1728285|   958.9988271494447|15678.934190872442|
+|  11|tt0167260|The Lord of the R...|          8.9| 1688142|   958.9988271494447|15666.821871575321|
+|  12|tt0903747|        Breaking Bad|          9.4| 1546808|   958.9988271494447| 15161.64023184376|
+|  13|tt0816692|        Interstellar|          8.6| 1583993|   958.9988271494447| 14204.75126178353|
+|  14|tt0167261|The Lord of the R...|          8.7| 1526381|   958.9988271494447|13847.268968484983|
+|  15|tt1345836|The Dark Knight R...|          8.4| 1558893|   958.9988271494447|13654.553925705062|
++----+---------+--------------------+-------------+--------+--------------------+------------------+
+
+
+Process finished with exit code 0
+
+
+
+
+
+
